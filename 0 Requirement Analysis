@@ -1,0 +1,89 @@
+ Requirement Analysis
+2.1 Functional Requirements
+Caption Extraction:
+
+Description: Extract all captions from Facebook posts using Selenium WebDriver for activities like student events, faculty training, and workshops.
+Input: Facebook login credentials and user profile URL.
+Output: Captions extracted from posts in text format.
+Constraints: Handling dynamic web content, scroll loading, and ensuring no duplication in extraction.
+Activity Classification:
+
+Description: Automatically classify extracted captions into predefined categories (e.g., student activity, training program, placement event).
+Input: Extracted captions.
+Output: Categorized activities (e.g., "student activity," "faculty training," etc.).
+Constraints: NLP-based classification model with an accuracy threshold of at least 85%.
+NLP-Based Data Structuring:
+
+Description: Use NLP techniques to extract and organize relevant information (such as event date, duration, and guide) from captions.
+Input: Classified captions.
+Output: A structured table (CSV/Excel format) with columns such as:
+Event Name/Activity
+Event Date
+Duration
+Guide/Organizer
+Additional Details (optional)
+Constraints: NLP libraries should correctly identify and extract key information from unstructured text, ensuring that each required field is filled.
+Storage and Output:
+
+Description: Store the extracted and classified data in a structured format for easy access and further analysis.
+Output: CSV/Excel file containing the structured event data.
+Constraints: Ensure no data loss or duplication during the data storage process.
+2.2 Non-Functional Requirements
+Performance:
+
+The system must handle large volumes of posts (up to 500 posts) efficiently.
+Caption extraction, classification, and data structuring should not take more than 10 seconds per post.
+Scalability:
+
+The system should be able to process an increasing number of posts as the user’s Facebook activity grows.
+Modular design to allow future enhancements (e.g., support for other social media platforms).
+Security:
+
+User credentials must be handled securely during login and data extraction.
+Use encrypted storage or secure APIs (e.g., Facebook Graph API) for authentication and data access.
+Reliability:
+
+The system should be reliable even in cases of dynamic page changes or unexpected webpage behavior.
+Implement error handling to manage issues like network connectivity problems or changes in Facebook’s DOM structure.
+Usability:
+
+The interface (command-line or GUI) should be user-friendly, allowing non-technical users to easily run the extraction and classification processes.
+Maintainability:
+
+The codebase should be modular and well-documented to facilitate easy maintenance and future upgrades (e.g., integrating advanced NLP models).
+Portability:
+
+The solution should be cross-platform, capable of running on different operating systems (e.g., Windows, Linux, macOS).
+Minimal hardware requirements for running the web scraping and NLP components.
+3. Hardware & Software Requirements
+3.1 Hardware Requirements
+Processor: Multi-core CPU (Intel i5 or equivalent).
+RAM: At least 8 GB for running multiple browser instances.
+Storage: Sufficient disk space (minimum 500 MB) to store extracted data and temporary files.
+3.2 Software Requirements
+Operating System: Windows, macOS, or Linux.
+Programming Language: Python (3.x).
+Web Scraping Library: Selenium WebDriver.
+NLP Libraries:
+spaCy or NLTK for natural language processing tasks.
+Data Handling: Pandas for managing structured data.
+Web Browser: Chrome (with Chromedriver) for Selenium automation.
+API Integration (optional): Facebook Graph API for future enhancements.
+4. System Design
+4.1 System Components:
+Web Scraping Component:
+
+Automated extraction of captions using Selenium.
+Classification Component:
+
+Use a pre-trained machine learning model or rule-based classifier to categorize captions into predefined activity types.
+NLP Component:
+
+Apply NLP to extract structured information (event name, date, etc.) from the captions.
+Data Output Component:
+
+Save the classified and structured data in a table format (CSV/Excel).
+5. Assumptions and Dependencies
+The user will provide valid Facebook credentials to log in for data extraction.
+The Facebook page structure remains consistent; any significant changes may require script adjustments.
+Internet connectivity is required for accessing Facebook and downloading data.
